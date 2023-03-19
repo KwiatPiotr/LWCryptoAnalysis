@@ -1,0 +1,3 @@
+/data/data/com.termux/files/home/Documents/politechnika/magisterka/my_romulus/build/CMakeFiles/magisterka.dir
+/data/data/com.termux/files/home/Documents/politechnika/magisterka/my_romulus/build/CMakeFiles/edit_cache.dir
+/data/data/com.termux/files/home/Documents/politechnika/magisterka/my_romulus/build/CMakeFiles/rebuild_cache.dir
