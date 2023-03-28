@@ -3,8 +3,12 @@
 
 int main(){
 	std::cout << "Hello \n";
-	std::cout << romulus::pad() << "\n";
-	
+
+    char* ptr;
+    romulus::test(reinterpret_cast<uint8_t*>(ptr));
+
+    std::cout << ptr << '\n';
+
 	return 0;
 }
 
