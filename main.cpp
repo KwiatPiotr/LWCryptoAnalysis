@@ -4,13 +4,8 @@
 
 int main(){
 	std::cout << "Hello \n";
-
-    char* ptr;
-    romulus::test(reinterpret_cast<uint8_t*>(ptr));
-
-    std::cout << ptr << '\n';
-    std::cout << ptr << '\n';
-    std::cout << sparkle::rotateShift(32, 5) << '\n';
+	std::cout << "Hello \n";
+	std::cout << "Hello \n";
 
 	return 0;
 }

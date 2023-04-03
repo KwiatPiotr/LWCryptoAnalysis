@@ -6,7 +6,7 @@ namespace romulus {
     }
 
 	uint32_t encrypt(uint32_t* in, uint32_t* key, uint32_t* out){
-
+        return 0;
     }
 
     uint32_t test(uint8_t* ptr) {
