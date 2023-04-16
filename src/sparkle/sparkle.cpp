@@ -9,7 +9,7 @@ uint32_t sparkle::permutation(uint32_t x) {
     return rotateShift(x ^ (x << 16), 16);
 }
 
-uint32_t sparkle::encrypt(uint8_t* state, uint32_t* state, uint32_t* params){ 
+uint32_t sparkle::encrypt(uint8_t* state, uint32_t steps, uint32_t branches) {
     uint8_t i, j;
     uint32_t roundCounter, tempX, tempY, firstX, firstY;
 
@@ -37,18 +37,24 @@ uint32_t sparkle::encrypt(uint8_t* state, uint32_t* state, uint32_t* params){
         // Linear Function
         tempX = state[0];
         tempY = state[1];
-        for(j = 2; j < brans; j += 2) {
+        firstX = state[0];
+        firstY = state[1];
+
+        for(j = 2; j < branches; j += 2) {
             tempX ^= state[j];
             tempY ^= state[j+1];
         }
         tempX = permutation(tempX);
         tempY = permutation(tempY);
+
+        //    The Diffusion Layer
+        
     }
 
     return 0;
 }
 
-uint32_t sparkle::decrypt(uint8_t* state, uint32_t* state, uint32_t* params){
+uint32_t sparkle::decrypt(uint8_t* state, uint32_t steps, uint32_t branches){
     return 0;
 }
 
