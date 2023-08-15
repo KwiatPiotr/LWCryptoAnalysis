@@ -68,7 +68,7 @@ namespace schwaemm {
             key32 = (uint32_t *) (void *) key;
         }
         else {
-            memcpy(buffer, key, SCHWAEMM_KEY_LEN);
+            std::memcpy(buffer, key, SCHWAEMM_KEY_LEN);
             key32 = (uint32_t *) buffer;
         }
 
@@ -78,7 +78,7 @@ namespace schwaemm {
     }
 
     void generateTag(uint32_t* state, uint8_t* tag) {
-
+        std::memcpy(tag, (state + RATE_WORDS), SCHWAEMM_TAG_LEN);
     }
 
     void verifyTag(uint32_t* state, uint8_t* tag) {
