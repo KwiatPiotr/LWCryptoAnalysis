@@ -1,21 +1,39 @@
 #include <iostream>
-#include <rom/romulus.h>
-#include <sparkle/sparkle.h>
+
+#include "sparkle/sparkle.h"
+#include "schwaemm/schwaemm.h"
+#include "api.h"
+
+#define MAX_MESSAGE_LENGTH  32
+#define MAX_AD_LENGTH       32
 
 int main(){
-	std::cout << "Hello \n";
-	std::cout << "Hello \n";
-	std::cout << "Hello \n";
+    // Count = 17
+    // Key = 000102030405060708090A0B0C0D0E0F
+    // Nonce = 000102030405060708090A0B0C0D0E0F
+    // PT = 
+    // AD = 000102030405060708090A0B0C0D0E0F
+    // CT = 8B7AEE52D40C7E0EDF9CB56FFAE5D882
 
-    uint32_t state[2*sparkle::MAX_BRANCHES] = {0};
+    schwaemm::UChar ct[MAX_MESSAGE_LENGTH + CRYPTO_ABYTES];
+    schwaemm::UChar msg[MAX_MESSAGE_LENGTH];
+    schwaemm::UChar ad[MAX_AD_LENGTH];
+    schwaemm::UChar nonce[CRYPTO_NPUBBYTES];
+    schwaemm::UChar key[CRYPTO_KEYBYTES];
+    schwaemm::ULLInt clen;
+    schwaemm::ULLInt mlen = MAX_MESSAGE_LENGTH;
+    schwaemm::ULLInt adlen = MAX_AD_LENGTH;
 
-    sparkle::printState(state, sparkle::MAX_BRANCHES);
+    schwaemm::init_buffer(key, sizeof(key));
+    schwaemm::init_buffer(nonce, sizeof(nonce));
+    schwaemm::init_buffer(msg, sizeof(msg));
+    schwaemm::init_buffer(ad, sizeof(ad));
 
-    sparkle::encrypt(state, 4, sparkle::MAX_BRANCHES);
+    int func_ret = schwaemm::crypto_aead_encrypt(ct, &clen, msg, mlen, ad, adlen, NULL, nonce, key);
 
-    std::cout << "======================================\n";
-
-    sparkle::printState(state, sparkle::MAX_BRANCHES);
+    printf("==========================================\n");
+    printf("%s\n", ct);
+    printf("==========================================\n");
 
 	return 0;
 }

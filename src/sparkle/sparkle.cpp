@@ -9,7 +9,7 @@ uint32_t sparkle::permutation(uint32_t x) {
     return rotateShift(x ^ (x << 16), 16);
 }
 
-uint32_t sparkle::encrypt(uint32_t* state, uint32_t steps, uint32_t branches) {
+uint32_t sparkle::encrypt(uint32_t* state, uint32_t branches, uint32_t steps) {
     uint8_t i, j;
     uint32_t roundCounter, tempX, tempY, firstX, firstY;
 

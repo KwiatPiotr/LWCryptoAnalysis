@@ -14,7 +14,7 @@ namespace sparkle {
 	inline uint32_t rotateShift(uint32_t x, uint32_t shift);
 	inline uint32_t permutation(uint32_t x);
 	inline uint32_t substitution();
-	uint32_t encrypt(uint32_t* state, uint32_t steps, uint32_t branches);
+	uint32_t encrypt(uint32_t* state, uint32_t branches, uint32_t steps);
 	uint32_t decrypt(uint8_t* state, uint32_t steps, uint32_t branches);
 
     void printState(const uint32_t* state, int branches);

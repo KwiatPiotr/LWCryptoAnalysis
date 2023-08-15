@@ -1,0 +1,15 @@
+/*
+#define CRYPTO_KEYBYTES 16
+#define CRYPTO_NSECBYTES 0
+#define CRYPTO_NPUBBYTES 32
+#define CRYPTO_ABYTES 16
+#define CRYPTO_NOOVERLAP 1
+*/
+
+#include "schwaemm/schwaemm.h"
+
+#define CRYPTO_KEYBYTES schwaemm::SCHWAEMM_KEY_LEN
+#define CRYPTO_NSECBYTES 0
+#define CRYPTO_NPUBBYTES schwaemm::SCHWAEMM_NONCE_LEN
+#define CRYPTO_ABYTES schwaemm::SCHWAEMM_TAG_LEN
+#define CRYPTO_NOOVERLAP 1
